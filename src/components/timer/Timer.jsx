@@ -4,7 +4,7 @@ import styles from "./Timer.module.css";
 
 function formatTime(time){
 
-    let totalSeconds = Math.floor(time/1000);
+    let totalSeconds = Math.floor(time);
     let seconds = String(totalSeconds%60);
 
     let totalMinutes = Math.floor(totalSeconds/60);

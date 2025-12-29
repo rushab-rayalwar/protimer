@@ -3,8 +3,9 @@
     margin:auto;
     height:20rem;
     /* background-color: aquamarine; */
-    background-color: rgba(255,255,255,0.01);
-    box-shadow: 0 0 2rem 0 rgba(255,255,255,0.04) inset;
+    /* background-color: rgba(255,255,255,0.01); */
+    background-color: rgba(15,15,15);
+    box-shadow: 0 0 2rem 0 rgba(255,255,255,0.01) inset;
     border-radius: 5rem;
     margin-top:3rem;
     display:flex; align-items: center; justify-content: center; flex-direction: column;
