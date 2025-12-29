@@ -1,4 +1,5 @@
-import styles from "./TaskInHistory.module.css"
+import styles from "./TaskInHistory.module.css";
+import {motion} from "framer-motion";
 
 function formatTime(timeInMilliseconds){
     let hours = new Date(timeInMilliseconds).getHours();
@@ -24,18 +25,19 @@ function formatDuration(time){
 }
 
 export default function TaskInHistory({historyObject}){
-    historyObject.startTime = formatTime(historyObject.startTime);
-    historyObject.endTime = formatTime(historyObject.endTime);
-    historyObject.time = formatDuration(historyObject.time);
     return ( 
         <>
-            <div className={styles.taskInHistory}>
+            <motion.div className={styles.taskInHistory}
+            initial={{opacity:0, y:"50%"}}
+            animate={{opacity:1, y:"0"}}
+            transition={{duration:0.6, ease:"easeOut"}}
+            >
                 <div className={styles.taskName}>{historyObject.taskName}</div>
 
-                <div className={`${styles.taskTime} ${styles.from}`}>{historyObject.startTime}</div>
-                <div className={`${styles.taskTime} ${styles.to}`}>{historyObject.endTime}</div>
-                <div className={`${styles.taskTime} ${styles.total}`}>{historyObject.time}</div>
-            </div>
+                <div className={`${styles.taskTime} ${styles.from}`}>{formatTime(historyObject.startTime)}</div>
+                <div className={`${styles.taskTime} ${styles.to}`}>{formatTime(historyObject.endTime)}</div>
+                <div className={`${styles.taskTime} ${styles.total}`}>{formatDuration(historyObject.time)}</div>
+            </motion.div>
         </>
     )
 }

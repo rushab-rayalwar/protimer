@@ -1,18 +1,20 @@
 import styles from "./history.module.css";
 import TaskInHistory from "../taskInHistory/TaskInHistory";
-
-import {motion, AnimatePresence} from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 export default function History({history}){
+    console.log(history);
     return(
         <>
-            <motion.div className={styles.historyContainer} layout>
+            <div className={styles.historyContainer}>
                 {history.map(h=>{
                     return(
-                        <TaskInHistory historyObject={h} key={h.taskName}/>
+                        <AnimatePresence>
+                            <TaskInHistory historyObject={h} key={h.taskName}/>
+                        </AnimatePresence>
                     )
                 })}
-            </motion.div>
+            </div>
         </>
     )
 }

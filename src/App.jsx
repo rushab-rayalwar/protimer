@@ -21,15 +21,14 @@
       setTaskName(input.trim().toUpperCase());
 
       intervalRef.current = setInterval(()=>{
-        let timeElapsed = Date.now() - startTime.current;
+        let timeElapsed = Date.now() - startTime.current; 
         timeElapsed = Math.floor(timeElapsed/1000);
         setTime(timeElapsed);
       },1000);
     }
     function stopTimer(){
       clearInterval(intervalRef.current);
-      let newHistory = [...history, {time, startTime: startTime.current, endTime: Date.now(), taskName}];
-      setHistory(newHistory);
+      setHistory(prevHistory => [...prevHistory, {time, startTime: startTime.current, endTime: Date.now(), taskName}]);
       setTime(0);
       setTimerRunning(false);
       setTaskName("");

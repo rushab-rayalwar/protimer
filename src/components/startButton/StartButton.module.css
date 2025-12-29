@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     margin-top:1rem;
-    margin-bottom:1rem;
+    margin-bottom:2rem;
 }
 .startButtonContainer>input{
     padding:0.7rem;
@@ -31,7 +31,7 @@ input::placeholder{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     cursor:pointer;
 }
-.startButton:hover{
+.startButton:hover, .stopButton:hover{
     background-color: rgb(50,50,50);
 
     color:white;
