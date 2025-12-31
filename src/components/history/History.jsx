@@ -2,8 +2,10 @@ import styles from "./history.module.css";
 import TaskInHistory from "../taskInHistory/TaskInHistory";
 import { AnimatePresence } from "framer-motion";
 
+// export default function History({history}){
 export default function History({history}){
-    console.log(history);
+    // console.log(history);
+    // let history = useSelector(state=>state.history);
     return(
         <>
             <div className={styles.historyContainer}>

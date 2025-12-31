@@ -2,7 +2,9 @@
   import StartButton from './components/startButton/StartButton'
   import History from "./components/history/History"
 
-  import { useState, useEffect, useRef } from 'react'
+  import { useState, useEffect, useRef } from 'react';
+  // import { useDispatch } from 'react-redux';
+  // import { addToHistory } from './redux/historySlice';
   import './App.css'
 
   function App() {
@@ -10,10 +12,10 @@
     const [taskName, setTaskName] = useState("");
     const [timerRunning, setTimerRunning] = useState(false);
     const [history, setHistory] = useState([]);
-    // const [startTime, setStartTime] = useState();
 
     let startTime = useRef();
     let intervalRef = useRef();
+    // const dispatch = useDispatch();
     
     function startTimer(input){
       startTime.current = Date.now();
@@ -21,7 +23,7 @@
       setTaskName(input.trim().toUpperCase());
 
       intervalRef.current = setInterval(()=>{
-        let timeElapsed = Date.now() - startTime.current; 
+        let timeElapsed = Date.now() - startTime.current;
         timeElapsed = Math.floor(timeElapsed/1000);
         setTime(timeElapsed);
       },1000);
@@ -29,6 +31,7 @@
     function stopTimer(){
       clearInterval(intervalRef.current);
       setHistory(prevHistory => [...prevHistory, {time, startTime: startTime.current, endTime: Date.now(), taskName}]);
+      // dispatch(addToHistory());
       setTime(0);
       setTimerRunning(false);
       setTaskName("");
