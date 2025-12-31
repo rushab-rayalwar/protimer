@@ -1,4 +1,4 @@
-import styles from "./history.module.css";
+import styles from "./History.module.css";
 import TaskInHistory from "../taskInHistory/TaskInHistory";
 import { AnimatePresence } from "framer-motion";
 
