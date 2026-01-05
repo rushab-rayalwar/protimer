@@ -1,8 +1,13 @@
-// import { configureStore } from "@reduxjs/toolkit";
-// import historyReducer from "./historySlice.js";
+// third party imports
+import { configureStore } from "@reduxjs/toolkit";
 
-// export const store = configureStore({
-//     reducer : {
-//         history : historyReducer
-//     }
-// });
+// local imports
+import historyReducer from "./history/historySlice.js";
+
+const store = configureStore({
+    reducer:{
+        history : historyReducer
+    }
+});
+
+export default store;
