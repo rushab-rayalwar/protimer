@@ -14,7 +14,7 @@
     flex-grow: 1;
     text-align: right;
 }
-.from, .to{
+.from, .to, .date{
     color:rgb(173, 173, 173);
 }
 .total {

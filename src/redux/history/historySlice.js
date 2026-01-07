@@ -23,7 +23,8 @@ const historySlice = createSlice({
             })
             .addCase(fetchHistory.fulfilled, (state, action)=>{
                 state.loading = false;
-                state.error = action.payload;
+                state.data = action.payload;
+                state.error = null;
             })
             .addCase(fetchHistory.rejected, (state, action)=>{
                 state.loading = false;

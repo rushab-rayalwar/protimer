@@ -24,7 +24,20 @@ function formatDuration(time){
     return `${hours.padStart(2,"0")}:${minutes.padStart(2,"0")}:${seconds.padStart(2,"0")}`;
 }
 
+function formatDate(historyObject){
+    let date = new Date(historyObject.createdAt);
+
+    if(isNaN(date)) return "--/--/--";
+
+    let day = String(date.getDate()).padStart(2,"0");
+    let month = String(date.getMonth()+1).padStart(2,"0"); // NOTE THIS - 0 based
+    let year = date.getFullYear();
+
+    return `${day}/${month}/${year}`;
+}
+
 export default function TaskInHistory({historyObject}){
+    console.log("History Object", historyObject);
     return ( 
         <>
             <motion.div className={styles.taskInHistory}
@@ -33,10 +46,10 @@ export default function TaskInHistory({historyObject}){
             transition={{duration:0.6, ease:"easeOut"}}
             >
                 <div className={styles.taskName}>{historyObject.taskName}</div>
-
+                <div className={`${styles.taskTime} ${styles.date}`}>{formatDate(historyObject)}</div>
                 <div className={`${styles.taskTime} ${styles.from}`}>{formatTime(historyObject.startTime)}</div>
                 <div className={`${styles.taskTime} ${styles.to}`}>{formatTime(historyObject.endTime)}</div>
-                <div className={`${styles.taskTime} ${styles.total}`}>{formatDuration(historyObject.time)}</div>
+                <div className={`${styles.taskTime} ${styles.total}`}>{formatDuration(historyObject.duration)}</div>
             </motion.div>
         </>
     )
