@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 const fetchHistory = createAsyncThunk("history/fetchHistory", async (_, thunkAPI)=>{
     try{
         // const res = await fetch("http://localhost:4000/api/task");
-        const res = await fetch("https://timerbackend-l0bs.onrender.com");
+        const res = await fetch("https://timerbackend-l0bs.onrender.com/api/task");
         const data = await res.json();
         if (!res.ok) {
             const errorBody = await res.json(); // if backend sends JSON
