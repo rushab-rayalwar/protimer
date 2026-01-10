@@ -20,7 +20,7 @@ export default function StartButton({stopTimer, startTimer, timerRunning}){
 
     return(
         <>
-            <motion.div className={styles.startButtonContainer} layout>
+            <motion.div className={styles.startButtonContainer}>
                 {!timerRunning && <>
                     <input ref={inputText} placeholder="New Task"></input>
                     <div className={styles.startButton} onClick={handleStart}>Start</div>
