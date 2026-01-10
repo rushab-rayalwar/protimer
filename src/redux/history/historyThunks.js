@@ -37,4 +37,4 @@ const addHistory = createAsyncThunk("history/addHistory", async ({newHistoryObje
     }
 });
 
-export {fetchHistory}
+export {fetchHistory, addHistory}
